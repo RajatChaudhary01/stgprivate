@@ -25,8 +25,8 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - docker push $REPOSITORY_URI:latest
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - docker push public.ecr.aws/o9s5z6y5/stgecr:latest
+      - docker push public.ecr.aws/o9s5z6y5/stgecr:$IMAGE_TAG
       - echo write definitions file...
       - printf '[{"name":"exp-code-pipeline","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
